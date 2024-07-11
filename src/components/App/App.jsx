@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { Header, Main } from "../";
+
+const initialStats = { score: 0, currentLevel: 1 };
 
 const App = () => {
-    return <div>App</div>;
+    const [stats, setStats] = useState(initialStats);
+
+    return (
+        <>
+            <Header {...{ stats }} />
+            <Main {...{ setStats, stats }} />
+        </>
+    );
 };
 
 export default App;

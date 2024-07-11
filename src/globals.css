@@ -2,4 +2,78 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    font-family: "Courier New", Courier, monospace;
+}
+
+button {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white);
+}
+
+:root {
+    --black-pure: hsl(240, 0%, 0%);
+    --black-pure-glass: hsla(240, 0%, 0%, 0.5);
+    --black: hsl(240, 10%, 20%);
+    --black-highlight: hsl(230, 10%, 30%);
+
+    --grey: hsl(220, 10%, 50%);
+    --grey-light: hsl(210, 10%, 70%);
+
+    --white: hsl(200, 100%, 100%);
+
+    --primary: hsl(200, 100%, 50%);
+
+    --secondary: hsl(30, 75%, 50%);
+}
+
+body {
+    color: var(--white);
+    background-color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    font-weight: 100;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+h4,
+p {
+    font-size: 1rem;
+}
+
+@media (width <= 720px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    h4,
+    p {
+        font-size: 1rem;
+    }
 }
