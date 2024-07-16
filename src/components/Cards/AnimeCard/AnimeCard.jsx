@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./AnimeCard.module.css";
 
+const maxLevel = 4;
+
 const AnimeCard = ({
     levelData,
     setLevelsData,
@@ -13,29 +15,45 @@ const AnimeCard = ({
 
     function handleCardClick() {
         if (levelData.isSelected) {
-            setStats({ score: 0, currentLevel: 1 });
-            setCurrentLevel(1);
+            resetGame();
         } else {
             levelData.isSelected = true;
             setStats({ ...stats, score: stats.score + 1 });
 
-            if (stats.score + 1 >= 2 ** currentLevel) {
-                if (currentLevel === 4) {
-                    alert("You Won! Yayyy");
-                    setCurrentLevel(1);
-                    setStats({ score: 0, currentLevel: 1 });
+            if (shouldLevelUp()) {
+                if (currentLevel === maxLevel) {
+                    playerWon();
                     return;
                 }
 
-                setCurrentLevel(currentLevel + 1);
-                setStats({
-                    score: 0,
-                    currentLevel: currentLevel + 1,
-                });
+                moveToNextLevel();
                 return;
             }
+
             setLevelsData((prev) => [...prev]);
         }
+    }
+
+    function moveToNextLevel() {
+        setCurrentLevel(currentLevel + 1);
+        setStats({
+            score: 0,
+            currentLevel: currentLevel + 1,
+        });
+    }
+
+    function playerWon() {
+        alert("You Won! Yayyy");
+        resetGame();
+    }
+
+    function shouldLevelUp() {
+        return stats.score + 1 >= 2 ** currentLevel;
+    }
+
+    function resetGame() {
+        setStats({ score: 0, currentLevel: 1 });
+        setCurrentLevel(1);
     }
 
     return (
