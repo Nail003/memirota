@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AnimeCardContainer } from "../Containers";
 import { useFetchLevelsData } from "../../customHooks";
 import { shuffleArray } from "../../utils";
