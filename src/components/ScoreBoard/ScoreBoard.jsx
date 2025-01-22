@@ -7,7 +7,9 @@ const ScoreBoard = ({ stats }) => {
             <h2>
                 Score: {stats.score}/{2 ** stats.currentLevel}
             </h2>
-            <h2>Level: {stats.currentLevel}</h2>
+            <h2>
+                Level: {stats.currentLevel}/{stats.maxLevels}
+            </h2>
         </div>
     );
 };

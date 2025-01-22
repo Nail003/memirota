@@ -1,0 +1,51 @@
+.message-card-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    backdrop-filter: blur(4px);
+}
+
+.message-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 75ch;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    padding: 16px;
+
+    background-color: var(--black);
+}
+
+.message-card__title {
+    color: var(--primary);
+    font-weight: bold;
+    cursor: default;
+}
+
+.message-card__button {
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: var(--primary);
+
+    transition: scale 200ms ease-in-out;
+}
+
+.message-card__button:hover,
+.message-card__button:focus {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    scale: 1.05;
+}

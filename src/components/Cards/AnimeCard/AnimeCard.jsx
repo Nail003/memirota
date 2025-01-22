@@ -1,8 +1,6 @@
 import React from "react";
 import styles from "./AnimeCard.module.css";
 
-const maxLevel = 4;
-
 const AnimeCard = ({
     levelData,
     setLevelsData,
@@ -10,6 +8,7 @@ const AnimeCard = ({
     stats,
     currentLevel,
     setCurrentLevel,
+    setShowWinMessage,
 }) => {
     const { animeName, rating, image } = levelData;
 
@@ -21,7 +20,7 @@ const AnimeCard = ({
             setStats({ ...stats, score: stats.score + 1 });
 
             if (shouldLevelUp()) {
-                if (currentLevel === maxLevel) {
+                if (currentLevel === stats.maxLevels) {
                     playerWon();
                     return;
                 }
@@ -37,13 +36,14 @@ const AnimeCard = ({
     function moveToNextLevel() {
         setCurrentLevel(currentLevel + 1);
         setStats({
+            ...stats,
             score: 0,
             currentLevel: currentLevel + 1,
         });
     }
 
     function playerWon() {
-        alert("You Won! Yayyy");
+        setShowWinMessage(true);
         resetGame();
     }
 
@@ -52,7 +52,7 @@ const AnimeCard = ({
     }
 
     function resetGame() {
-        setStats({ score: 0, currentLevel: 1 });
+        setStats({ ...stats, score: 0, currentLevel: 1 });
         setCurrentLevel(1);
     }
 
