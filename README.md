@@ -67,10 +67,6 @@ This command builds the project and deploys it to your GitHub Pages site.
 
 - [The Odin Project](https://www.theodinproject.com) – for providing the resources and inspiration that contributed to this project.
 
-## Feedback
-
-If you encounter any issues or have suggestions for improvement, please feel free to reach out via my [LinkedIn profile](https://www.linkedin.com/in/danial-zafar-dev).
-
 ## About
 
 Memirota was created as part of my TOP assignment. It combines fun gameplay with practical coding to offer a unique and interactive memory game experience.
